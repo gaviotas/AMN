@@ -1,4 +1,4 @@
-## Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds (CVPR 2022)
+# Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds (CVPR 2022)
 
 Minhyun Lee<sup>* </sup>, Dongseob Kim<sup>*</sup>, Hyunjung Shim<sup>†</sup>
 
