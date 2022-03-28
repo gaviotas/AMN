@@ -5,10 +5,6 @@ Minhyun Lee<sup>* </sup>, Dongseob Kim<sup>*</sup>, Hyunjung Shim<sup>†</sup>
 <sub>* indicates an equal contribution.</sub> <br>
 <sub>†Hyunjung Shim is a corresponding author.</sub>
 
-
-## Introduction
-TBD
-
 ## Updates
 TBD
 
