@@ -1,6 +1,6 @@
 # Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds<br>(CVPR 2022)
 
-![](/home/lmh/Documents/Project-cuda/CVPR2022/AMN/figure/AMN.png)
+![](https://github.com/gaviotas/AMN/blob/main/figure/AMN.png?raw=true)
 
 Official pytorch implementation of "Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds"
 
