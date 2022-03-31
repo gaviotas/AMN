@@ -47,6 +47,10 @@ __Official pytorch implementation of "Threshold Matters in WSSS: Manipulating th
 
   - [AMN](https://drive.google.com/file/d/1aGrXnjA2M33acP0BWlCNFCrkZ-8h84sw/view?usp=sharing)
   - [Boundary refinement network (IRN) w/ AMN](https://drive.google.com/file/d/1UqzFPQVugX1SgnO9W5FmdFdlo0XBwPlq/view?usp=sharing)
+
+- **Refined seed for AMN (CAM + CRF)**
+
+  - [Refined seed (ir_label)](https://drive.google.com/file/d/1N8lQsnqaKPOSVtuI-MCDeQxp-d9wHx5F/view?usp=sharing)
  
 
 ## Execution
