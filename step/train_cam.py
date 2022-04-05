@@ -20,8 +20,7 @@ def validate(model, data_loader):
 
     with torch.no_grad():
         for pack in data_loader:
-            img = pack['img']
-
+            img = pack['img'].cuda(non_blocking=True)
             label = pack['label'].cuda(non_blocking=True)
 
             x = model(img)
