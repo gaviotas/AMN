@@ -73,3 +73,15 @@ Fort the segmentation network, we experimented with [DeepLab-V2](https://github.
 
 ## Acknowledgement
 This code is highly borrowed from [IRN](https://github.com/jiwoon-ahn/irn). Thanks to Jiwoon, Ahn.
+
+
+## Citation
+If you find this work useful for your research, please cite our paper:
+```
+@InProceedings{Lee2022AMN,
+    author    = {Lee, Minhyun, Kim, Dongseob, and Shim, Hyunjung},
+    title     = {Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+    year      = {2022}
+}
+```
