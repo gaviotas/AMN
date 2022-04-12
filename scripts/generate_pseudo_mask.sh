@@ -1,6 +1,5 @@
 # NEED TO SET
 DATASET_ROOT=PATH/TO/DATASET
-WEIGHT_ROOT=PATH/TO/WEIGHT
 GPU=0
 
 # 1. train a classification network and compute refined seed
