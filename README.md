@@ -23,6 +23,8 @@ __Official pytorch implementation of "Threshold Matters in WSSS: Manipulating th
 
 31 Mar, 2022: Initial upload
 
+07 Jul, 2022: updates about ms-coco 2014 dataset
+
 
 ## Requirement 
 
