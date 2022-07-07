@@ -6,7 +6,7 @@
 
 <!-- ![](https://github.com/gaviotas/AMN/blob/main/figure/AMN.png?raw=true){: .center} -->
 <p align="center">
-<img src="https://github.com/gaviotas/AMN/blob/main/figure/AMN.png?raw=true">
+<img src="https://github.com/gaviotas/AMN/blob/voc12/figure/AMN.png?raw=true">
 </p>
 
 __Official pytorch implementation of "Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds"__
