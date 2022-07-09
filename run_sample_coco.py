@@ -25,15 +25,12 @@ if __name__ == '__main__':
 
     # Environment
     parser.add_argument("--num_workers", default=os.cpu_count()//2, type=int)
-    parser.add_argument("--coco14_root", default='/data/coco_2014', type=str,
-                        help="Path to VOC 2012 Devkit, must contain ./JPEGImages as subdirectory.")
+    parser.add_argument("--coco14_root", default='/data/coco_2014', type=str)
 
     # Dataset
     parser.add_argument("--train_list", default="coco14/train14.txt", type=str)
     parser.add_argument("--val_list", default="coco14/val14.txt", type=str)
-    parser.add_argument("--infer_list", default="coco14/train14.txt", type=str,
-                        help="voc12/train_aug.txt to train a fully supervised model, "
-                             "voc12/train.txt or voc12/val.txt to quickly check the quality of the labels.")
+    parser.add_argument("--infer_list", default="coco14/train14.txt", type=str)
     parser.add_argument("--chainer_eval_set", default="train", type=str)
 
     # Class Activation Map
