@@ -4,9 +4,9 @@
 
 ## Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds (CVPR 2022)
 
-<!-- ![](https://github.com/gaviotas/AMN/blob/main/figure/AMN.png?raw=true){: .center} -->
+<!-- ![](https://github.com/gaviotas/AMN/blob/coco14/figure/AMN.png?raw=true){: .center} -->
 <p align="center">
-<img src="https://github.com/gaviotas/AMN/blob/main/figure/AMN.png?raw=true">
+<img src="https://github.com/gaviotas/AMN/blob/coco14/figure/AMN.png?raw=true">
 </p>
 
 __Official pytorch implementation of "Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds"__
@@ -22,6 +22,7 @@ __Official pytorch implementation of "Threshold Matters in WSSS: Manipulating th
 ## Updates
 
 31 Mar, 2022: Initial upload
+
 07 Jul, 2022: updates for training codes of coco14 
 
 ## Requirement 
