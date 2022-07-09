@@ -6,7 +6,7 @@
 
 <!-- ![](https://github.com/gaviotas/AMN/blob/main/figure/AMN.png?raw=true){: .center} -->
 <p align="center">
-<img src="https://github.com/gaviotas/AMN/blob/voc12/figure/AMN.png?raw=true">
+<img src="https://github.com/gaviotas/AMN/blob/main/figure/AMN.png?raw=true">
 </p>
 
 __Official pytorch implementation of "Threshold Matters in WSSS: Manipulating the Activation for the Robust and Accurate Segmentation Model Against Thresholds"__
@@ -22,8 +22,6 @@ __Official pytorch implementation of "Threshold Matters in WSSS: Manipulating th
 ## Updates
 
 31 Mar, 2022: Initial upload
-
-07 Jul, 2022: updates about ms-coco 2014 dataset
 
 
 ## Requirement 
