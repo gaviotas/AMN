@@ -9,8 +9,6 @@ from PIL import Image
 from tqdm import tqdm
 
 def run(args):
-    # dataset = VOCSemanticSegmentationDataset(split=args.chainer_eval_set, data_dir=args.voc12_root)
-    # labels = [dataset.get_example_by_keys(i, (1,))[0] for i in range(len(dataset))]
     ids = open('coco14/train14.txt').readlines()
     ids = [i.split('\n')[0] for i in ids]
     preds = []

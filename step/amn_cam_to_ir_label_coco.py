@@ -87,9 +87,7 @@ def _work(process_id, infer_dataset, args):
 
 
 def run(args):
-    dataset = coco14.dataloader.COCO14ImageDataset(args.train_list, coco14_root=args.voc12_root, img_normal=None, to_torch=False)
+    dataset = coco14.dataloader.COCO14ImageDataset(args.train_list, coco14_root=args.coco14_root, img_normal=None, to_torch=False)
     dataset = torchutils.split_dataset(dataset, 16)
 
-    print('[ ', end='')
     multiprocessing.spawn(_work, nprocs=16, args=(dataset, args), join=True)
-    print(']')

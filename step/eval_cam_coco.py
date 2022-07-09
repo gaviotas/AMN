@@ -33,8 +33,6 @@ def run(args):
             print(id, xx, yy)
 
     confusion = calc_semantic_segmentation_confusion(preds, labels)
-    # np.save('confusion_cam_crf.npy', np.array(confusion))
-    # print(confusion, confusion.shape)
     gtj = confusion.sum(axis=1)
     resj = confusion.sum(axis=0)
     gtjresj = np.diag(confusion)

@@ -124,9 +124,6 @@ def run(args):
             label_seg = pack['label'].long().cuda(non_blocking=True)
             label_cls = pack['label_cls'].cuda(non_blocking=True).float()
 
-            # print(label_cls.shape, label_cls.max(), label_cls.min(), type(label_cls))
-            # exit()
-
             logit = model(img, label_cls)
 
             B, C, H, W = logit.shape

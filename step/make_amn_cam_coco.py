@@ -26,7 +26,6 @@ def _work(process_id, model, dataset, args):
 
         model.cuda()
 
-        # for iter, pack in enumerate(data_loader):
         for iter, pack in enumerate(tqdm(data_loader, position=process_id, desc=f'[PID{process_id}]')):
 
             img_name = pack['name'][0]
@@ -57,7 +56,6 @@ def _work(process_id, model, dataset, args):
             n_classes = len(list(valid_cat))
 
             if n_classes == 0:
-                # print("no class", img_name)
                 valid_cat = torch.nonzero(pack['label'][0])[:, 0]
                 np.save(os.path.join(args.amn_cam_out_dir, img_name + '.npy'),
                         {"keys": valid_cat})

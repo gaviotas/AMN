@@ -9,7 +9,7 @@ VOC2012_JSON_FOLDER = ""
 
 def run(args):
 
-    infer_dataset = voc12.dataloader.VOC12ImageDataset(args.infer_list, voc12_root=args.voc12_root)
+    infer_dataset = voc12.dataloader.VOC12ImageDataset(args.infer_list, coco14_root=args.coco14_root)
 
     infer_data_loader = DataLoader(infer_dataset, shuffle=False, num_workers=args.num_workers, pin_memory=True)
 

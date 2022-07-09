@@ -74,3 +74,4 @@ def gap2d(x, keepdims=False):
         out = out.view(out.size(0), out.size(1), 1, 1)
 
     return out
+

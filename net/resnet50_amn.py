@@ -1,5 +1,7 @@
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from misc import torchutils
 from net import resnet50
 
 class _ASPP(nn.Module):
@@ -38,11 +40,11 @@ class Net(nn.Module):
 
         astrous_rates = [6, 12, 18, 24]
 
-        self.label_enc = nn.Linear(20, 2048)
+        self.label_enc = nn.Linear(80, 2048)
 
         self.classifier = nn.Sequential(
             nn.Dropout(0.1),
-            _ASPP(in_ch=2048, out_ch=21, rates=astrous_rates)
+            _ASPP(in_ch=2048, out_ch=81, rates=astrous_rates)
         )
 
         self.backbone = nn.ModuleList([self.stage1, self.stage2, self.stage3, self.stage4])
@@ -89,6 +91,7 @@ class CAM(Net):
         B, C, H, W = x.shape
 
         y = self.label_enc(y)
+
         y = y.unsqueeze(-1).unsqueeze(-1)
 
         x = x * y

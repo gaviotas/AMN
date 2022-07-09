@@ -41,7 +41,6 @@ def _work(process_id, infer_dataset, args):
     infer_data_loader = DataLoader(databin, shuffle=False, num_workers=0, pin_memory=False)
 
 
-    # for iter, pack in enumerate(infer_data_loader):
     for iter, pack in enumerate(tqdm(infer_data_loader, position=process_id, desc=f'[PID{process_id}]')):
 
         img_name = coco14.dataloader.decode_int_filename(pack['name'][0])
@@ -49,7 +48,6 @@ def _work(process_id, infer_dataset, args):
 
         try:
             label = imageio.imread(os.path.join(args.ir_label_out_dir, img_name + '.png'))
-            # print(img_name, "passed")
         except:
             cam_dict = np.load(os.path.join(args.cam_out_dir, img_name + '.npy'), allow_pickle=True).item()
 
@@ -93,7 +91,7 @@ def _work(process_id, infer_dataset, args):
                 print("%d " % ((5 * iter + 1) // (len(databin) // 20)), end='')
 
 def run(args):
-    dataset = coco14.dataloader.COCO14ImageDataset(args.train_list, coco14_root=args.voc12_root, img_normal=None, to_torch=False)
+    dataset = coco14.dataloader.COCO14ImageDataset(args.train_list, coco14_root=args.coco14_root, img_normal=None, to_torch=False)
     dataset = torchutils.split_dataset(dataset, 16)
 
     print('[ ', end='')

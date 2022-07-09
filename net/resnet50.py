@@ -2,7 +2,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.utils.model_zoo as model_zoo
 
-
 model_urls = {
     'resnet50': 'https://download.pytorch.org/models/resnet50-19c8e357.pth'
 }
@@ -64,14 +63,14 @@ class ResNet(nn.Module):
         self.bn1 = FixedBatchNorm(64)
         self.relu = nn.ReLU(inplace=True)
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
+
         self.layer1 = self._make_layer(block, 64, layers[0], stride=1, dilation=dilations[0])
         self.layer2 = self._make_layer(block, 128, layers[1], stride=strides[1], dilation=dilations[1])
         self.layer3 = self._make_layer(block, 256, layers[2], stride=strides[2], dilation=dilations[2])
         self.layer4 = self._make_layer(block, 512, layers[3], stride=strides[3], dilation=dilations[3])
+
         self.inplanes = 1024
 
-        #self.avgpool = nn.AvgPool2d(7, stride=1)
-        #self.fc = nn.Linear(512 * block.expansion, 1000)
 
 
     def _make_layer(self, block, planes, blocks, stride=1, dilation=1):
@@ -100,7 +99,6 @@ class ResNet(nn.Module):
         x = self.layer2(x)
         x = self.layer3(x)
         x = self.layer4(x)
-
         x = self.avgpool(x)
         x = x.view(x.size(0), -1)
         x = self.fc(x)
@@ -115,5 +113,7 @@ def resnet50(pretrained=True, **kwargs):
         state_dict = model_zoo.load_url(model_urls['resnet50'])
         state_dict.pop('fc.weight')
         state_dict.pop('fc.bias')
-        model.load_state_dict(state_dict)
+        model.load_state_dict(state_dict, strict=False)
+        print("model pretrained initialized")
+
     return model

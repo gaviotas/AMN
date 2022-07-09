@@ -25,7 +25,6 @@ def _work(process_id, model, dataset, args):
 
         model.cuda()
 
-        # for iter, pack in enumerate(data_loader):
         for iter, pack in enumerate(tqdm(data_loader, position=process_id, desc=f'[PID{process_id}]')):
 
             img_name = pack['name'][0]
@@ -51,7 +50,6 @@ def _work(process_id, model, dataset, args):
             n_classes = len(list(valid_cat))
 
             if n_classes == 0:
-                # print("no class", img_name)
                 valid_cat = torch.nonzero(pack['label'][0])[:, 0]
                 np.save(os.path.join(args.cam_out_dir, img_name + '.npy'),
                         {"keys": valid_cat})
@@ -68,9 +66,6 @@ def _work(process_id, model, dataset, args):
             np.save(os.path.join(args.cam_out_dir, img_name + '.npy'),
                     {"keys": valid_cat, "cam": strided_cam.cpu(), "high_res": highres_cam.cpu().numpy()})
 
-            # if process_id == n_gpus - 1 and iter % (len(databin) // 20) == 0:
-            #     print("%d " % ((5*iter+1)//(len(databin) // 20)), end='')
-
 
 def run(args):
     model = getattr(importlib.import_module(args.cam_network), 'CAM')(coco=True)
@@ -80,11 +75,9 @@ def run(args):
     n_gpus = torch.cuda.device_count()
 
     dataset = coco14.dataloader.COCO14ClassificationDatasetMSF(args.train_list,
-                                                             coco14_root=args.voc12_root, scales=args.cam_scales)
+                                                             coco14_root=args.coco14_root, scales=args.cam_scales)
     dataset = torchutils.split_dataset(dataset, n_gpus)
 
-    # print('[ ', end='')
     multiprocessing.spawn(_work, nprocs=n_gpus, args=(model, dataset, args), join=True)
-    # print(']')
 
     torch.cuda.empty_cache()

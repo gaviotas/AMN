@@ -113,14 +113,12 @@ class Net(nn.Module):
         x3 = self.stage3(x2).detach()
         x4 = self.stage4(x3).detach()
         x5 = self.stage5(x4).detach()
-
         edge1 = self.fc_edge1(x1)
         edge2 = self.fc_edge2(x2)
         edge3 = self.fc_edge3(x3)[..., :edge2.size(2), :edge2.size(3)]
         edge4 = self.fc_edge4(x4)[..., :edge2.size(2), :edge2.size(3)]
         edge5 = self.fc_edge5(x5)[..., :edge2.size(2), :edge2.size(3)]
         edge_out = self.fc_edge6(torch.cat([edge1, edge2, edge3, edge4, edge5], dim=1))
-
         dp1 = self.fc_dp1(x1)
         dp2 = self.fc_dp2(x2)
         dp3 = self.fc_dp3(x3)
@@ -129,7 +127,6 @@ class Net(nn.Module):
 
         dp_up3 = self.fc_dp6(torch.cat([dp3, dp4, dp5], dim=1))[..., :dp2.size(2), :dp2.size(3)]
         dp_out = self.fc_dp7(torch.cat([dp1, dp2, dp_up3], dim=1))
-
         return edge_out, dp_out
 
     def trainable_parameters(self):
@@ -220,10 +217,10 @@ class EdgeDisplacement(Net):
         self.crop_size = crop_size
         self.stride = stride
 
-    def forward(self, x):
+    def forward(self, x, coco=False):
         feat_size = (x.size(2)-1)//self.stride+1, (x.size(3)-1)//self.stride+1
-
-        x = F.pad(x, [0, self.crop_size-x.size(3), 0, self.crop_size-x.size(2)])
+        if not coco:
+            x = F.pad(x, [0, self.crop_size-x.size(3), 0, self.crop_size-x.size(2)])
         edge_out, dp_out = super().forward(x)
         edge_out = edge_out[..., :feat_size[0], :feat_size[1]]
         dp_out = dp_out[..., :feat_size[0], :feat_size[1]]

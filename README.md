@@ -22,7 +22,7 @@ __Official pytorch implementation of "Threshold Matters in WSSS: Manipulating th
 ## Updates
 
 31 Mar, 2022: Initial upload
-
+07 Jul, 2022: updates for training codes of coco14 
 
 ## Requirement 
 
@@ -35,26 +35,27 @@ __Official pytorch implementation of "Threshold Matters in WSSS: Manipulating th
   ```
   AMN
   |--- sess
-  |    |--- res50_amn.pth.pth
-  |    |--- res50_irn.pth
+  |    |--- res50_amn_coco.pth.pth
+  |    |--- res50_irn_coco.pth
   |--- result
-  |    |--- ir_label
+  |    |--- ir_label_coco
   |    | ...
   | ...
   ```
 
 - **Dataset**
 
-  - [Pascal VOC 2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/) 
+  - [MS COCO 2014](https://cocodataset.org/#download)
+  - [Semantic annotations for MS COCO 2014](https://drive.google.com/file/d/1pRE9SEYkZKVg0Rgz2pi9tg48j7GlinPV/view?usp=sharing)
 
 - **Pretrained checkpoint**
 
-  - [AMN](https://drive.google.com/file/d/1aGrXnjA2M33acP0BWlCNFCrkZ-8h84sw/view?usp=sharing)
-  - [Boundary refinement network (IRN) w/ AMN](https://drive.google.com/file/d/1UqzFPQVugX1SgnO9W5FmdFdlo0XBwPlq/view?usp=sharing)
+  - [AMN](https://drive.google.com/file/d/1WcFa15EMfsvRz-q8_0uJtEeRm0ZdQpFG/view?usp=sharing)
+  - [Boundary refinement network (IRN) w/ AMN](https://drive.google.com/file/d/1YW3BCFnMd7Lz0s30yjQQ_JT2kzMdQawn/view?usp=sharing)
 
 - **Refined seed for AMN (CAM + CRF)**
 
-  - [Refined seed (ir_label)](https://drive.google.com/file/d/1N8lQsnqaKPOSVtuI-MCDeQxp-d9wHx5F/view?usp=sharing)
+  - [Refined seed (ir_label)](https://drive.google.com/file/d/1mI9S6ZVtI6ZqdkvYsXsBb6RMkBn09gWV/view?usp=sharing)
  
 
 ## Execution
@@ -68,11 +69,11 @@ __Official pytorch implementation of "Threshold Matters in WSSS: Manipulating th
     ```
 
 ### Segmentation network
-Fort the segmentation network, we experimented with [DeepLab-V2](https://github.com/kazuto1011/deeplab-pytorch) and followed the default training settings of [AdvCAM](https://github.com/jbeomlee93/AdvCAM)
+Fort the segmentation network, we experimented with [DeepLab-V2](https://github.com/kazuto1011/deeplab-pytorch).
 
 
 ## Acknowledgement
-This code is highly borrowed from [IRN](https://github.com/jiwoon-ahn/irn). Thanks to Jiwoon, Ahn.
+This code is highly borrowed from [RIB](https://github.com/jbeomlee93/RIB). Thanks to Jungbeom, Lee.
 
 
 ## Citation

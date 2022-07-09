@@ -50,14 +50,14 @@ def run(args):
     model = getattr(importlib.import_module(args.cam_network), 'Net')(coco=True)
 
 
-    train_dataset = coco14.dataloader.COCO14ClassificationDataset(args.train_list, coco14_root=args.voc12_root,
+    train_dataset = coco14.dataloader.COCO14ClassificationDataset(args.train_list, coco14_root=args.coco14_root,
                                                                 resize_long=(320, 640), hor_flip=True,
                                                                 crop_size=512, crop_method="random")
     train_data_loader = DataLoader(train_dataset, batch_size=args.cam_batch_size,
                                    shuffle=True, num_workers=args.num_workers, pin_memory=True, drop_last=True)
     max_step = (len(train_dataset) // args.cam_batch_size) * args.cam_num_epoches
 
-    val_dataset = coco14.dataloader.COCO14ClassificationDataset(args.val_list, coco14_root=args.voc12_root,
+    val_dataset = coco14.dataloader.COCO14ClassificationDataset(args.val_list, coco14_root=args.coco14_root,
                                                               crop_size=512)
     val_data_loader = DataLoader(val_dataset, batch_size=args.cam_batch_size,
                                  shuffle=False, num_workers=args.num_workers, pin_memory=True, drop_last=True)
@@ -83,9 +83,7 @@ def run(args):
 
             img = pack['img']
             img = img.cuda()
-            # img.requires_grad = True
             label = pack['label'].cuda(non_blocking=True)
-            # print(img.shape, label.shape)
             model.zero_grad()
             x = model(img)
 
