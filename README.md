@@ -47,7 +47,7 @@ __Official pytorch implementation of "Threshold Matters in WSSS: Manipulating th
 - **Dataset**
 
   - [MS COCO 2014](https://cocodataset.org/#download)
-  - [Semantic annotations for MS COCO 2014](https://drive.google.com/file/d/1pRE9SEYkZKVg0Rgz2pi9tg48j7GlinPV/view?usp=sharing)
+  - [Semantic segmentation annotations for MS COCO 2014](https://github.com/jbeomlee93/RIB)
 
 - **Pretrained checkpoint**
 
